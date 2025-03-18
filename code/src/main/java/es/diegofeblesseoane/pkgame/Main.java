@@ -1,4 +1,4 @@
-package es.diegofeblesseoane.game;
+package es.diegofeblesseoane.pkgame;
 
 public class Main {
     public static void main(String[] args) {
