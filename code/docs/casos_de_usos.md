@@ -44,3 +44,5 @@
      2. Crear cuenta
      3. Participar en combates amistosos
      4. Ver perfiles de otros usuarios.
+
+     
