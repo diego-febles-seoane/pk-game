@@ -15,10 +15,6 @@
   
 ### Caracteristicas de caso de uso
 
-Aquí tienes las tablas en formato Markdown:
-
-Aquí tienes los actores en formato Markdown:
-
 ---
 
 ### **Actor: Usuario Registrado**  
@@ -62,8 +58,6 @@ Aquí tienes los actores en formato Markdown:
 | **Fecha** | _20/03/2025_ |
 
 ---
-
-¡Listo para copiar y pegar! Si necesitas algo más, avísame. 😊
 
 ---
 
