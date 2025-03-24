@@ -1,5 +1,5 @@
 
-## Caso de Usos 
+## Casos de Uso
 
 ### Actores
 
@@ -12,6 +12,7 @@
    - **Usuario sin Registrar**
      - Descripción: Usuario sin registro que puede visualizar algunos contenidos de la aplicación.
 
+<<<<<<< Updated upstream
   
 ### Caracteristicas de caso de uso
 
@@ -42,6 +43,7 @@
 | **Notas** | _Debe registrarse para acceder a más funciones._ |
 | **Autor** | _Diego Febles Seoane_ |
 | **Fecha** | _20/03/2025_ |
+
 
 ---
 
