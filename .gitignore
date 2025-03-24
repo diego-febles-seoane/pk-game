@@ -4,3 +4,16 @@ venv/
 .env/
 .vscode/
 .idea/
+*.class
+/bin/
+/target/
+/.idea/
+/*.iml
+/.vscode/
+/mvnw/
+/mvnw.cmd
+/.mvn/
+/target/
+.gradle/
+/build/
+.DS_Store
