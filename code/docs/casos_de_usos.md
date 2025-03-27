@@ -1,5 +1,6 @@
+## Diseño de la app
 
-
+![alt](../../diagramas/Diseño%20de%20las%20pantallas%20mooks%20del%20proyecto%20proyecto.drawio.png)
 
 ## Casos de Uso
 
