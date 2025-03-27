@@ -1,4 +1,6 @@
 
+
+
 ## Casos de Uso
 
 ### Actores
@@ -16,6 +18,9 @@
   
 ### Caracteristicas de caso de uso
 
+![alt](../../diagramas/diagramapaquetespkgame.drawio.png)
+
+![alt](../../diagramas/casodeusopkgame.drawio.png)
 ---
 
 ### **Actor: Usuario Registrado**  
