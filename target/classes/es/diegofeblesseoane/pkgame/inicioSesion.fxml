@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diegofeblesseoane.pkgame.backend.controller.InicioSesionController">
    <children>
       <Text layoutX="412.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Iniciar Sesion" textAlignment="CENTER" wrappingWidth="455.3800048828125" />
       <Line endX="562.5" layoutX="640.0" layoutY="131.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
@@ -17,7 +17,7 @@
       <Button fx:id="buttonIniciarSesion" layoutX="556.0" layoutY="417.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="164.0" text="Iniciar Sesion" />
       <Line endX="562.5" layoutX="640.0" layoutY="574.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
       <Text layoutX="492.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="enlace" text="¿Has olvidado tu contraseña?" textAlignment="CENTER" underline="true" wrappingWidth="297.25499725341797" />
-      <Button fx:id="buttonRegistro" layoutX="559.0" layoutY="678.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="164.0" text="Registrarse" />
+      <Button fx:id="buttonRegistro" layoutX="559.0" layoutY="678.0" mnemonicParsing="false" onAction="#onButtonRegistrarClick" prefHeight="53.0" prefWidth="164.0" text="Registrarse" />
       <Text layoutX="545.0" layoutY="637.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="¿No tienes cuenta?" wrappingWidth="187.25499725341797" />
       <PasswordField fx:id="passwordFieldContrasenia" layoutX="186.0" layoutY="347.0" prefHeight="36.0" prefWidth="905.0" styleClass="textField" />
    </children>
