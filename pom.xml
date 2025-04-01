@@ -10,8 +10,8 @@
 
      <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <javafx.version>21</javafx.version>
         <junit.version>5.9.2</junit.version>
         <javafx-maven-plugin.version>0.0.8</javafx-maven-plugin.version>
