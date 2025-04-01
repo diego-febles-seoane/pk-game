@@ -6,10 +6,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="809.0" fitWidth="1430.0" layoutX="-106.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="804.0" fitWidth="1431.0" layoutX="-106.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/backgroundPrincipal.jpg" />
          </image>
@@ -37,6 +36,11 @@
             <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="495.0" layoutY="723.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/meta.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="222.0" fitWidth="646.0" layoutX="327.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/logo-app.png" />
                </image>
             </ImageView>
          </children>
