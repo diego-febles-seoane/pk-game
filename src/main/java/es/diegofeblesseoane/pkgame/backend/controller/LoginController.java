@@ -1,4 +1,4 @@
-package es.diegofeblesseoane.pkgame.frontend.controller;
+package es.diegofeblesseoane.pkgame.backend.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
