@@ -14,7 +14,7 @@ public class PrincipalApplication extends Application {
         Font.loadFont(PrincipalApplication.class.getResourceAsStream("/fonts/marvel.ttf"), 10);
 
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 410, 810);
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
         stage.setTitle("Pantalla Principal");
         stage.setResizable(false);
         stage.setScene(scene);

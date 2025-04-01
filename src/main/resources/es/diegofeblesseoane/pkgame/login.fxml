@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
-
+<?import javafx.scene.layout.VBox?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="802.0" fitWidth="1288.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="background" />
+            <Image url="@/images/background.png" />
          </image>
       </ImageView>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="buttonRegistrar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Button" />
+            <Button fx:id="buttonIniciarSesion" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Button" />
+         </children>
+      </VBox>
    </children>
 </StackPane>
