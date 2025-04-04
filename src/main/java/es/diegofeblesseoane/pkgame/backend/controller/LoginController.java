@@ -14,12 +14,28 @@ public class LoginController {
     @FXML
     public Button buttonIniciarSesion;
 
+    @FXML
+    public Button buttonIniciarSinRegistro;
 
     @FXML
     public void onIniciarSesionButton(){
         try {
             Stage stage = (Stage) buttonIniciarSesion.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("inicioSesion.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
+            stage.setTitle("RPS Pokemon - Inicio Sesion");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onIncioSinRegistroClick(){
+        try {
+            Stage stage = (Stage) buttonIniciarSinRegistro.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("menu.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
             stage.setTitle("RPS Pokemon - Inicio Sesion");
             stage.setScene(scene);
