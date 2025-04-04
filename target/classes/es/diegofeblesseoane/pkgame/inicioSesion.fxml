@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diegofeblesseoane.pkgame.backend.controller.InicioSesionController">
+   <children>
+      <Text layoutX="412.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Iniciar Sesion" textAlignment="CENTER" wrappingWidth="455.3800048828125" />
+      <Line endX="562.5" layoutX="640.0" layoutY="131.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
+      <Text layoutX="557.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nombre Usuario" wrappingWidth="164.25499725341797" />
+      <TextField fx:id="textFieldNombreUsuario" layoutX="190.0" layoutY="224.0" prefHeight="36.0" prefWidth="899.0" styleClass="textField" />
+      <Text layoutX="581.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Contraseña" wrappingWidth="114.25499725341797" />
+      <Button fx:id="buttonIniciarSesion" layoutX="557.0" layoutY="437.0" mnemonicParsing="false" onAction="#onMenuPrincipalClick" prefHeight="53.0" prefWidth="164.0" text="Iniciar Sesion" />
+      <Line endX="562.5" layoutX="640.0" layoutY="574.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
+      <Text layoutX="492.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="enlace" text="¿Has olvidado tu contraseña?" textAlignment="CENTER" underline="true" wrappingWidth="297.25499725341797" />
+      <Button fx:id="buttonRegistro" layoutX="559.0" layoutY="678.0" mnemonicParsing="false" onAction="#onButtonRegistrarClick" prefHeight="53.0" prefWidth="164.0" text="Registrarse" />
+      <Text layoutX="545.0" layoutY="637.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="¿No tienes cuenta?" wrappingWidth="187.25499725341797" />
+      <PasswordField fx:id="passwordFieldContrasenia" layoutX="186.0" layoutY="347.0" prefHeight="36.0" prefWidth="905.0" styleClass="textField" />
+      <Text fx:id="textFalloInicio" fill="RED" layoutX="484.0" layoutY="414.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="CENTER" wrappingWidth="314.0" />
+   </children>
+</AnchorPane>

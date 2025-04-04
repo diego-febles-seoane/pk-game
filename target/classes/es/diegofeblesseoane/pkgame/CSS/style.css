@@ -1,0 +1,35 @@
+.button{
+    -fx-background-color: #060446;
+    -fx-background-radius: 10;
+    -fx-border-color: #f2c301;
+    -fx-border-radius: 10;
+    -fx-text-fill: #fff;
+    -fx-text-color: #fff;
+}
+
+.title{
+    -fx-font-size: 56;
+    -fx-fill: #fff;
+}
+
+.background{
+    -fx-background-color: #191a1b;
+}
+
+.text{
+    -fx-fill: #fff;
+    -fx-font-size: 21;
+}
+
+.textField{
+    -fx-text-fill: #fff;
+    -fx-background-color: #060446;
+    -fx-background-radius: 10;
+    -fx-border-color: #f2c301;
+    -fx-border-radius: 10;
+}
+
+.enlace{
+    -fx-fill: #0790cb;
+    -fx-font-size: 21;
+}

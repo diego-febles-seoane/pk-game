@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutX="53.0" prefHeight="801.0" prefWidth="1234.0" rotate="180.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="799.0" prefWidth="677.0" rotate="180.0" styleClass="background">
+               <children>
+                  <Text layoutX="143.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Noticias" />
+                  <Line endX="302.5955810546875" endY="43.4044189453125" layoutX="-207.0" layoutY="38.0" startX="469.26220703125" startY="43.4044189453125" stroke="#f2c301" strokeWidth="2.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="838.0" prefWidth="862.0" rotate="180.0" styleClass="background">
+               <children>
+                  <Text layoutX="348.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Modos mas Jugados" />
+                  <Line endX="-339.73779296875" endY="43.4044189453125" layoutX="427.0" layoutY="35.0" startX="401.5955810546875" startY="43.4044189453125" stroke="#f2c301" strokeWidth="2.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <AnchorPane layoutX="-6.0" layoutY="-2.0" prefHeight="807.0" prefWidth="60.0" styleClass="background">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/perfil.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/play.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/pokebola.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/estadisticas.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/eventos.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="11.0" layoutY="761.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/ajustes.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <Line endX="921.0" endY="798.2622680664062" startX="921.0" startY="8.265177712019067E-6" stroke="#2a069c" strokeWidth="10.0" />
+      <Line endX="-5.999977111816406" endY="751.0" layoutX="-5.0" startX="59.000022888183594" startY="751.0" stroke="#2a069c" strokeWidth="10.0" />
+      <Line endX="984.0" endY="534.0" layoutX="-930.0" layoutY="272.0" startX="984.0" startY="-278.0" stroke="#2a069c" strokeWidth="10.0" />
+      <Line endX="-10.0" endY="43.40439987182617" layoutX="10.0" layoutY="10.0" startX="44.26225662231445" startY="43.4044189453125" stroke="#2a069c" strokeWidth="10.0" />
+   </children>
+</AnchorPane>

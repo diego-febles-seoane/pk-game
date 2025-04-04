@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diegofeblesseoane.pkgame.backend.controller.InicioSesionController">
+   <children>
+      <Text layoutX="373.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Recuperar contrasenia" textAlignment="CENTER" wrappingWidth="569.3800048828125" />
+      <Line endX="562.5" layoutX="640.0" layoutY="233.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
+      <Text layoutX="547.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Email de recuperacion" wrappingWidth="221.25499725341797" />
+      <TextField fx:id="textFieldNombreUsuario" layoutX="191.0" layoutY="382.0" prefHeight="36.0" prefWidth="899.0" styleClass="textField" />
+      <Button fx:id="buttonIniciarSesion" layoutX="576.0" layoutY="568.0" mnemonicParsing="false" onAction="#onMenuPrincipalClick" prefHeight="53.0" prefWidth="164.0" text="Iniciar Sesion" />
+      <Line endX="562.5" layoutX="640.0" layoutY="650.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
+   </children>
+</AnchorPane>
