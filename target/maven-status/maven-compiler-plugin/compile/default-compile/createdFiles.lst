@@ -1,4 +1,8 @@
 es/diegofeblesseoane/pkgame/backend/controller/LoginController.class
+es/diegofeblesseoane/pkgame/backend/model/UsuarioServiceModel.class
 es/diegofeblesseoane/pkgame/PrincipalApplication.class
-es/diegofeblesseoane/pkgame/backend/controller/InicioSesionController.class
+es/diegofeblesseoane/pkgame/config/ConfigManager$ConfigProperties.class
+es/diegofeblesseoane/pkgame/config/ConfigManager.class
 es/diegofeblesseoane/pkgame/backend/controller/RegistroController.class
+es/diegofeblesseoane/pkgame/backend/controller/InicioSesionController.class
+es/diegofeblesseoane/pkgame/backend/controller/abstracts/AbstractController.class
