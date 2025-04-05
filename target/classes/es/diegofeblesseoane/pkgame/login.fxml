@@ -15,7 +15,7 @@
       </ImageView>
       <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="804.0" prefWidth="1291.0">
          <children>
-            <ComboBox layoutX="1127.0" layoutY="20.0" prefWidth="150.0" promptText="Idioma" styleClass="button" />
+            <ComboBox fx:id="comboIdioma" layoutX="1127.0" layoutY="20.0" prefWidth="150.0" promptText="Idioma" styleClass="button" />
             <Button fx:id="buttonIniciarSinRegistro" layoutX="548.0" layoutY="559.0" mnemonicParsing="false" onAction="#onIncioSinRegistroClick" prefHeight="48.0" prefWidth="187.0" text="Jugar sin Iniciar Sesion" textAlignment="CENTER" />
             <Button id="button" fx:id="buttonIniciarSesion" layoutX="552.0" layoutY="636.0" mnemonicParsing="false" onAction="#onIniciarSesionButton" prefHeight="51.0" prefWidth="183.0" text="Iniciar Sesion" />
             <ImageView fitHeight="53.0" fitWidth="55.0" layoutX="22.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
