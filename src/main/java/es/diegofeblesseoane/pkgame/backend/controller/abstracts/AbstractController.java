@@ -5,7 +5,13 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
+import es.diegofeblesseoane.pkgame.backend.model.UsuarioServiceModel;
+
 public abstract class AbstractController {
+
+    static final String PATH_DB = "src/main/resources/usuarios.db";
+
+    private UsuarioServiceModel usuarioServiceModel;
 
     private Properties propertiesIdioma;
 
