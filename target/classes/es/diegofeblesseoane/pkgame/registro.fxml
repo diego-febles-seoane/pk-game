@@ -23,5 +23,6 @@
       <Text layoutX="542.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Repetir Contraseña" textAlignment="CENTER" wrappingWidth="193.25499725341797" />
       <Text layoutX="558.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Correo" textAlignment="CENTER" wrappingWidth="164.25499725341797" />
       <TextField fx:id="textFieldNombreUsuario2" layoutX="189.0" layoutY="575.0" prefHeight="36.0" prefWidth="899.0" styleClass="textField" />
+      <Text fx:id="textMensaje" layoutX="435.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="CENTER" wrappingWidth="407.13000106811523" />
    </children>
 </AnchorPane>
