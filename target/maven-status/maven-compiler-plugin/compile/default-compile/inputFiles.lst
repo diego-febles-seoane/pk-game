@@ -1,7 +1,10 @@
 /home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/controller/InicioSesionController.java
 /home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/controller/RegistroController.java
+/home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/model/abtrastas/Conexion.java
 /home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/config/ConfigManager.java
 /home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/model/UsuarioServiceModel.java
 /home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/controller/abstracts/AbstractController.java
 /home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/PrincipalApplication.java
+/home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/model/UsuarioEntity.java
+/home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/model/UsuarioSesion.java
 /home/diego/Escritorio/repositorios/pk-game/src/main/java/es/diegofeblesseoane/pkgame/backend/controller/LoginController.java

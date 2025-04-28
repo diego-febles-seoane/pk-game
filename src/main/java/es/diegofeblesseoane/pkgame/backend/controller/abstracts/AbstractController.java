@@ -63,4 +63,13 @@ public abstract class AbstractController {
 
         return properties;
     }
+
+    
+    /**
+     * Devuelve el modelo de usuario.
+     * @return El modelo de usuario.
+     */
+    public UsuarioServiceModel getUsuarioServiceModel() {
+        return this.usuarioServiceModel;
+    }
 }
