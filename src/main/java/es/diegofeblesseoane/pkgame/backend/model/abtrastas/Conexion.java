@@ -39,21 +39,20 @@ public abstract class Conexion {
 
     /**
      * Funcion que devuelve la conexion a la bbdd
-     * @param unaRutaArchivoBD ruta de la bbdd
      * @return conexion a la bbdd
+     * @throws SQLException error controlado
      */
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
         try {
-            if (connection == null) {
-                connection = DriverManager.getConnection("jdbc:sqlite:" + rutaArchivoBD);
-            } 
-        } catch (Exception e) {
-            e.printStackTrace();
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("SQLite JDBC driver not found", e);
         }
         
-        return this.connection;
+        String url = "jdbc:sqlite:src/main/resources/db/usuarios.db";
+        connection = DriverManager.getConnection(url);
+        return connection;
     }
-
 
     /**
      * Funcion que abre la conexion a la bbdd
@@ -72,7 +71,7 @@ public abstract class Conexion {
      * @throws SQLException
      */
     public void cerrar() throws SQLException {
-       if (connection != null || !connection.isClosed()) {
+       if (connection != null && !connection.isClosed()) {
         connection.close();
         connection = null;
        }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import es.diegofeblesseoane.pkgame.backend.model.abtrastas.Conexion;
 
-public class UsuarioServiceModel extends Conexion{
+public class UsuarioServiceModel extends Conexion {
 
     public UsuarioServiceModel() {
     }
@@ -20,7 +20,7 @@ public class UsuarioServiceModel extends Conexion{
     public UsuarioServiceModel(String unaRutaArchivoBD) throws SQLException {
         super(unaRutaArchivoBD);
     }
-    
+
     /**
      * * Funcion que devuelve la conexion a la bbdd
      * @return ArrayList<UsuarioEntity> lista de usuarios
@@ -32,10 +32,9 @@ public class UsuarioServiceModel extends Conexion{
     }
 
     public ArrayList<UsuarioEntity> obtenerUsuario(String sql) throws SQLException {
-        ArrayList<UsuarioEntity> usuarios = new ArrayList<UsuarioEntity>();
-        try {
-            PreparedStatement sentencia = getConnection().prepareStatement(sql);
-            ResultSet resultado = sentencia.executeQuery();
+        ArrayList<UsuarioEntity> usuarios = new ArrayList<>();
+        try (PreparedStatement sentencia = getConnection().prepareStatement(sql);
+             ResultSet resultado = sentencia.executeQuery()) {
 
             while (resultado.next()) {
                 String nombreStr = resultado.getString("nombre_usuario");
@@ -56,70 +55,137 @@ public class UsuarioServiceModel extends Conexion{
      * * Metodo que obtiene las credenciales del usuario
      * @param dato 
      * @return UsuarioEntity usuario con las credenciales
+     * @throws SQLException 
      */
-    public UsuarioEntity obtenerCredencialesUsuario(String dato) {
-        try {
-            String sql = "SELECT * FROM usuario WHERE email = ? OR nombre_usuario = ?";
-            PreparedStatement stmt = getConnection().prepareStatement(sql);
+    public UsuarioEntity obtenerCredencialesUsuario(String dato) throws SQLException {
+        String sql = "SELECT * FROM usuario WHERE email = ? OR nombre_usuario = ?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
             stmt.setString(1, dato);
             stmt.setString(2, dato);
-            
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                UsuarioEntity usuario = new UsuarioEntity(
-                    rs.getString("email"),
-                    rs.getString("nombre_usuario"),
-                    rs.getString("contrasenia")
-                );
-                // Cargar estadísticas
-                usuario.setVictoriasTotales(rs.getInt("victorias_totales"));
-                usuario.setDerrotasTotales(rs.getInt("derrotas_totales"));
-                usuario.setMayorRacha(rs.getInt("mayor_racha"));
-                usuario.setRachaActual(rs.getInt("racha_actual"));
-                usuario.setDerrotasConsecutivas(rs.getInt("derrotas_consecutivas"));
-                
-                return usuario;
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    UsuarioEntity usuario = new UsuarioEntity(
+                        rs.getString("email"),
+                        rs.getString("nombre_usuario"),
+                        rs.getString("contrasenia")
+                    );
+                    // Cargar estadísticas
+                    usuario.setVictoriasTotales(rs.getInt("victorias_totales"));
+                    usuario.setDerrotasTotales(rs.getInt("derrotas_totales"));
+                    usuario.setMayorRacha(rs.getInt("mayor_racha"));
+                    usuario.setRachaActual(rs.getInt("racha_actual"));
+                    usuario.setDerrotasConsecutivas(rs.getInt("derrotas_consecutivas"));
+
+                    return usuario;
+                }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                cerrar();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    /**
-     * * Metodo que obtiene las credenciales del usuario
-     * @param usuario 
-     * @return boolean true si se ha podido agregar el usuario
-     * @throws SQLException error controlado
-     */
-    public boolean agregarUsuario(UsuarioEntity usuario) throws SQLException {
-        if (usuario == null) {
-            return false;
-        }
-        ArrayList<UsuarioEntity> usuarios = obtenerUsuarios();
-        String sql = "INSERT  INTO usuario (nombre_usuario,email,contrasenia) VALUES ('" + usuario.getNombre() + "', '"
-                + usuario.getEmail() + "', '" + usuario.getContrasenia() + "')";
-
-        if (usuarios.contains(usuario)) {
-            return false;
-        }
-
-        try {
-            PreparedStatement sentencia = getConnection().prepareStatement(sql);
-            sentencia.executeUpdate();
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             cerrar();
         }
-        return true;
+        return null;
+    }
+
+    /**
+     * Verifica si un usuario ya existe por email o nombre de usuario
+     * @param email email del usuario
+     * @param nombreUsuario nombre de usuario
+     * @return true si el usuario ya existe
+     * @throws SQLException error controlado
+     */
+    public boolean usuarioExiste(String email, String nombreUsuario) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM usuario WHERE email = ? OR nombre_usuario = ?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, email);
+            stmt.setString(2, nombreUsuario);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            cerrar();
+        }
+        return false;
+    }
+    
+    /**
+     * Valida los datos del usuario antes del registro
+     * @param usuario usuario a validar
+     * @return mensaje de error o null si es válido
+     */
+    public String validarUsuario(UsuarioEntity usuario) {
+        if (usuario == null) {
+            return "Usuario no puede ser nulo";
+        }
+        
+        if (usuario.getEmail() == null || usuario.getEmail().trim().isEmpty()) {
+            return "El email no puede estar vacío";
+        }
+        
+        if (usuario.getNombre() == null || usuario.getNombre().trim().isEmpty()) {
+            return "El nombre de usuario no puede estar vacío";
+        }
+        
+        if (usuario.getContrasenia() == null || usuario.getContrasenia().trim().isEmpty()) {
+            return "La contraseña no puede estar vacía";
+        }
+        
+        // Validar formato de email
+        if (!usuario.getEmail().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            return "El formato del email no es válido";
+        }
+        
+        // Validar longitud del nombre de usuario
+        if (usuario.getNombre().length() < 3 || usuario.getNombre().length() > 20) {
+            return "El nombre de usuario debe tener entre 3 y 20 caracteres";
+        }
+        
+        // Validar longitud de la contraseña
+        if (usuario.getContrasenia().length() < 3) {
+            return "La contraseña debe tener al menos 3 caracteres";
+        }
+        
+        return null; // No hay errores
+    }
+    
+    /**
+     * Método que agrega un usuario
+     * @param usuario usuario a agregar
+     * @return boolean true si se ha podido agregar el usuario
+     * @throws SQLException error controlado
+     */
+    public boolean agregarUsuario(UsuarioEntity usuario) throws SQLException {
+        // Validar datos del usuario
+        String error = validarUsuario(usuario);
+        if (error != null) {
+            System.err.println("Error de validación: " + error);
+            return false;
+        }
+        
+        // Verificar si el usuario ya existe
+        if (usuarioExiste(usuario.getEmail(), usuario.getNombre())) {
+            System.err.println("El usuario ya existe con ese email o nombre de usuario");
+            return false;
+        }
+
+        String sql = "INSERT INTO usuario (email, nombre_usuario, contrasenia) VALUES (?, ?, ?)";
+        try (PreparedStatement sentencia = getConnection().prepareStatement(sql)) {
+            sentencia.setString(1, usuario.getEmail().trim());
+            sentencia.setString(2, usuario.getNombre().trim());
+            sentencia.setString(3, usuario.getContrasenia().trim());
+            return sentencia.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al agregar usuario: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        } finally {
+            cerrar();
+        }
     }
 
     /**
@@ -133,14 +199,13 @@ public class UsuarioServiceModel extends Conexion{
             return false;
         }
 
-        String sql = "UPDATE usuario SET nombre_usuario = '" + usuario.getNombre() + 
-                     "', email = '" + usuario.getEmail() + 
-                     "', contrasenia = '" + usuario.getContrasenia() + "'";
-
-        try {
-            PreparedStatement sentencia = getConnection().prepareStatement(sql);
-            sentencia.executeUpdate();
-            return true;
+        String sql = "UPDATE usuario SET nombre_usuario = ?, email = ?, contrasenia = ? WHERE email = ?";
+        try (PreparedStatement sentencia = getConnection().prepareStatement(sql)) {
+            sentencia.setString(1, usuario.getNombre());
+            sentencia.setString(2, usuario.getEmail());
+            sentencia.setString(3, usuario.getContrasenia());
+            sentencia.setString(4, usuario.getEmail());
+            return sentencia.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -148,7 +213,7 @@ public class UsuarioServiceModel extends Conexion{
             cerrar();
         }
     }
-    
+
     /**
      * * Metodo que edita el usuario
      * @param usuario 
@@ -161,16 +226,13 @@ public class UsuarioServiceModel extends Conexion{
             return false;
         }
 
-        // Actualizar el registro basado en el email original
-        String sql = "UPDATE usuario SET nombre_usuario = '" + usuario.getNombre() + 
-                     "', email = '" + usuario.getEmail() + 
-                     "', contrasenia = '" + usuario.getContrasenia() + 
-                     "' WHERE email = '" + emailOriginal + "'";
-
-        try {
-            PreparedStatement sentencia = getConnection().prepareStatement(sql);
-            int filasActualizadas = sentencia.executeUpdate();
-            return filasActualizadas > 0;
+        String sql = "UPDATE usuario SET nombre_usuario = ?, email = ?, contrasenia = ? WHERE email = ?";
+        try (PreparedStatement sentencia = getConnection().prepareStatement(sql)) {
+            sentencia.setString(1, usuario.getNombre());
+            sentencia.setString(2, usuario.getEmail());
+            sentencia.setString(3, usuario.getContrasenia());
+            sentencia.setString(4, emailOriginal);
+            return sentencia.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -190,12 +252,10 @@ public class UsuarioServiceModel extends Conexion{
             return false;
         }
 
-        String sql = "DELETE FROM usuario WHERE email = '" + email + "'";
-
-        try {
-            PreparedStatement sentencia = getConnection().prepareStatement(sql);
-            int filasEliminadas = sentencia.executeUpdate();
-            return filasEliminadas > 0;
+        String sql = "DELETE FROM usuario WHERE email = ?";
+        try (PreparedStatement sentencia = getConnection().prepareStatement(sql)) {
+            sentencia.setString(1, email);
+            return sentencia.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -205,39 +265,59 @@ public class UsuarioServiceModel extends Conexion{
     }
 
     /**
-     * * Metodo que actualiza las estadisticas del usuario
-     * @param usuario
+     * Método que actualiza las estadísticas del usuario
+     * @param usuario usuario con las nuevas estadísticas
      * @return boolean true si se ha podido actualizar el usuario
      * @throws SQLException error controlado
      */
     public boolean actualizarEstadisticas(UsuarioEntity usuario) throws SQLException {
+        if (usuario == null) {
+            return false;
+        }
+
         String sql = "UPDATE usuario SET " +
                      "victorias_totales = ?, " +
                      "derrotas_totales = ?, " +
                      "mayor_racha = ?, " +
                      "racha_actual = ?, " +
-                     "derrotas_consecutivas = ? " +
+                     "derrotas_consecutivas = ?, " +
+                     "ultimo_acceso = CURRENT_TIMESTAMP " +
                      "WHERE email = ?";
-        
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(sql);
-            stmt.setInt(2, usuario.getVictoriasTotales());
-            stmt.setInt(3, usuario.getDerrotasTotales());
-            stmt.setInt(5, usuario.getMayorRacha());
-            stmt.setInt(6, usuario.getRachaActual());
-            stmt.setInt(7, usuario.getDerrotasConsecutivas());
-            stmt.setString(8, usuario.getEmail());
-            
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, usuario.getVictoriasTotales());
+            stmt.setInt(2, usuario.getDerrotasTotales());
+            stmt.setInt(3, usuario.getMayorRacha());
+            stmt.setInt(4, usuario.getRachaActual());
+            stmt.setInt(5, usuario.getDerrotasConsecutivas());
+            stmt.setString(6, usuario.getEmail());
+            int rowsUpdated = stmt.executeUpdate();
+            System.out.println("Actualizando estadísticas para " + usuario.getEmail() + ": " + rowsUpdated + " filas afectadas");
+            return rowsUpdated > 0;
+        } catch (Exception e) {
+            System.err.println("Error al actualizar estadísticas: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        } finally {
+            cerrar();
+        }
+    }
+    
+    /**
+     * Actualiza la última fecha de acceso del usuario
+     * @param email email del usuario
+     * @return true si se actualizó correctamente
+     * @throws SQLException error controlado
+     */
+    public boolean actualizarUltimoAcceso(String email) throws SQLException {
+        String sql = "UPDATE usuario SET ultimo_acceso = CURRENT_TIMESTAMP WHERE email = ?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setString(1, email);
             return stmt.executeUpdate() > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         } finally {
-            try {
-                cerrar(); 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            cerrar();
         }
     }
 }

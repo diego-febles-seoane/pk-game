@@ -121,9 +121,8 @@ public class UsuarioEntity {
     }
 
     /**
-     * * Metodo que actualiza las estadisticas del usuario
-     * * @param usuario 
-     * @param victoria 
+     * Método que actualiza las estadísticas del usuario
+     * @param victoria true si el usuario ganó, false si perdió
      */
     public void actualizarEstadisticas(boolean victoria) {
         if (victoria) {
@@ -135,7 +134,8 @@ public class UsuarioEntity {
                 mayorRacha = rachaActual;
             }
             
-            if (victoriasNivel >= 3 && nivelActual < 3) {
+            // Sistema de niveles mejorado
+            if (victoriasNivel >= 3 && nivelActual < 10) {
                 nivelActual++;
                 victoriasNivel = 0;
             }
@@ -144,11 +144,52 @@ public class UsuarioEntity {
             derrotasConsecutivas++;
             rachaActual = 0;
             
-            if (derrotasConsecutivas >= 2) {
-                victoriasNivel = Math.max(0, victoriasNivel - 1);
+            // Penalización por derrotas consecutivas
+            if (derrotasConsecutivas >= 3 && nivelActual > 1) {
+                nivelActual = Math.max(1, nivelActual - 1);
+                victoriasNivel = 0;
                 derrotasConsecutivas = 0;
             }
         }
+    }
+    
+    /**
+     * Obtiene el porcentaje de victorias del usuario
+     * @return porcentaje de victorias (0-100)
+     */
+    public double getPorcentajeVictorias() {
+        int totalPartidas = victoriasTotales + derrotasTotales;
+        if (totalPartidas == 0) return 0.0;
+        return (double) victoriasTotales / totalPartidas * 100.0;
+    }
+    
+    /**
+     * Obtiene el total de partidas jugadas
+     * @return total de partidas
+     */
+    public int getTotalPartidas() {
+        return victoriasTotales + derrotasTotales;
+    }
+    
+    /**
+     * Obtiene el título del usuario basado en sus estadísticas
+     * @return título del usuario
+     */
+    public String getTitulo() {
+        if (mayorRacha >= 20) return "🏆 Maestro Pokémon";
+        if (mayorRacha >= 10) return "⭐ Entrenador Experto";
+        if (mayorRacha >= 5) return "🎯 Entrenador Avanzado";
+        if (victoriasTotales >= 10) return "🎮 Entrenador";
+        if (victoriasTotales >= 3) return "🌟 Novato Prometedor";
+        return "🥚 Entrenador Principiante";
+    }
+    
+    /**
+     * Método de conveniencia para obtener el nivel
+     * @return nivel actual del usuario
+     */
+    public int getNivel() {
+        return nivelActual;
     }
 
     @Override
@@ -169,9 +210,7 @@ public class UsuarioEntity {
   
     @Override
     public String toString() {
-        return
-            " email = '" + getEmail() + "'" +
-            ", nombre = '" + getNombre() + "'" +
-            ", contrasenia = '" + getContrasenia() + "'";
+        return String.format("Usuario{email='%s', nombre='%s', nivel=%d, victorias=%d, derrotas=%d, racha=%d}",
+                            email, nombre, nivelActual, victoriasTotales, derrotasTotales, rachaActual);
     }
 }

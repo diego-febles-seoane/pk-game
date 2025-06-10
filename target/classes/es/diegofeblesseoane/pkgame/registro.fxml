@@ -7,22 +7,50 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diegofeblesseoane.pkgame.backend.controller.RegistroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1400.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diegofeblesseoane.pkgame.backend.controller.RegistroController">
    <children>
-      <Text layoutX="412.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Registro" textAlignment="CENTER" wrappingWidth="455.3800048828125" />
-      <Line endX="562.5" layoutX="640.0" layoutY="131.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
-      <Text layoutX="559.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nombre Usuario" textAlignment="CENTER" wrappingWidth="164.25499725341797" />
-      <TextField fx:id="textFieldNombreUsuario" layoutX="190.0" layoutY="286.0" prefHeight="36.0" prefWidth="899.0" styleClass="textField" />
-      <Text layoutX="582.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Contraseña" textAlignment="CENTER" wrappingWidth="114.25499725341797" />
-      <Line endX="562.5" layoutX="623.0" layoutY="759.0" startX="-526.5" stroke="#060446" strokeWidth="3.0" />
-      <Button fx:id="buttonRegistro" layoutX="559.0" layoutY="687.0" mnemonicParsing="false" onAction="#onRegistroCompletadoClick" prefHeight="53.0" prefWidth="164.0" text="Registrarse" />
-      <PasswordField fx:id="passwordFieldContrasenia" layoutX="187.0" layoutY="371.0" prefHeight="36.0" prefWidth="905.0" styleClass="textField" />
-      <TextField fx:id="textFieldNombreUsuario1" layoutX="190.0" layoutY="192.0" prefHeight="36.0" prefWidth="899.0" styleClass="textField" />
-      <Text layoutX="559.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Nombre" textAlignment="CENTER" wrappingWidth="164.25499725341797" />
-      <PasswordField fx:id="passwordFieldContrasenia1" layoutX="189.0" layoutY="473.0" prefHeight="36.0" prefWidth="905.0" styleClass="textField" />
-      <Text layoutX="542.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Repetir Contraseña" textAlignment="CENTER" wrappingWidth="193.25499725341797" />
-      <Text layoutX="558.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Correo" textAlignment="CENTER" wrappingWidth="164.25499725341797" />
-      <TextField fx:id="textFieldNombreUsuario2" layoutX="189.0" layoutY="575.0" prefHeight="36.0" prefWidth="899.0" styleClass="textField" />
-      <Text fx:id="textMensaje" layoutX="435.0" layoutY="659.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="CENTER" wrappingWidth="407.13000106811523" />
+      <!-- Panel de registro centralizado -->
+      <AnchorPane layoutX="350.0" layoutY="80.0" prefHeight="740.0" prefWidth="700.0" styleClass="card">
+         <children>
+            <!-- Título -->
+            <Text layoutX="200.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="📝 REGISTRO" textAlignment="CENTER" wrappingWidth="300.0" />
+            <Text layoutX="150.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="subtitle" text="Crea tu cuenta de entrenador" textAlignment="CENTER" wrappingWidth="400.0" />
+            
+            <!-- Campo nombre completo -->
+            <Text layoutX="50.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="👤 Nombre Completo" />
+            <TextField fx:id="textFieldNombreUsuario1" layoutX="50.0" layoutY="180.0" prefHeight="50.0" prefWidth="600.0" promptText="Tu nombre completo" styleClass="textField" />
+            
+            <!-- Campo nombre de usuario -->
+            <Text layoutX="50.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="🎮 Nombre de Usuario" />
+            <TextField fx:id="textFieldNombreUsuario" layoutX="50.0" layoutY="270.0" prefHeight="50.0" prefWidth="600.0" promptText="Tu nombre de usuario único" styleClass="textField" />
+            
+            <!-- Campo email -->
+            <Text layoutX="50.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="📧 Email" />
+            <TextField fx:id="textFieldNombreUsuario2" layoutX="50.0" layoutY="360.0" prefHeight="50.0" prefWidth="600.0" promptText="tu@email.com" styleClass="textField" />
+            
+            <!-- Campo contraseña -->
+            <Text layoutX="50.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="🔒 Contraseña" />
+            <PasswordField fx:id="passwordFieldContrasenia" layoutX="50.0" layoutY="450.0" prefHeight="50.0" prefWidth="600.0" promptText="Mínimo 3 caracteres" styleClass="textField" />
+            
+            <!-- Campo confirmar contraseña -->
+            <Text layoutX="50.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="🔐 Confirmar Contraseña" />
+            <PasswordField fx:id="passwordFieldContrasenia1" layoutX="50.0" layoutY="540.0" prefHeight="50.0" prefWidth="600.0" promptText="Repite tu contraseña" styleClass="textField" />
+            
+            <!-- Mensaje de estado -->
+            <Text fx:id="textMensaje" layoutX="50.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="CENTER" wrappingWidth="600.0" />
+            
+            <!-- Botones -->
+            <Button fx:id="buttonRegistro" layoutX="200.0" layoutY="640.0" mnemonicParsing="false" onAction="#onRegistroCompletadoClick" prefHeight="60.0" prefWidth="300.0" styleClass="button-primary" text="🎉 CREAR CUENTA" />
+            
+            <Button layoutX="275.0" layoutY="710.0" mnemonicParsing="false" onAction="#openVolverClick" prefHeight="40.0" prefWidth="150.0" styleClass="button" text="⬅️ Volver" />
+         </children>
+      </AnchorPane>
+      
+      <!-- Información lateral -->
+      <Text layoutX="50.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="¡Únete a la\nAventura!" textAlignment="LEFT" wrappingWidth="250.0" />
+      <Text layoutX="50.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="🚀 Registro rápido y fácil\n📊 Estadísticas personalizadas\n🏆 Sistema de títulos\n🎯 Combates ilimitados\n👥 Comunidad de entrenadores" textAlignment="LEFT" wrappingWidth="280.0" />
+      
+      <Text layoutX="1100.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-large" text="Requisitos:" textAlignment="LEFT" wrappingWidth="250.0" />
+      <Text layoutX="1100.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="✅ Email válido\n✅ Usuario único (3-20 chars)\n✅ Contraseña (min. 3 chars)\n🔒 Datos seguros y cifrados" textAlignment="LEFT" wrappingWidth="280.0" />
    </children>
 </AnchorPane>

@@ -1,35 +1,680 @@
+/* === COLORES PRINCIPALES === */
 .button{
-    -fx-background-color: #060446;
-    -fx-background-radius: 10;
-    -fx-border-color: #f2c301;
-    -fx-border-radius: 10;
-    -fx-text-fill: #fff;
-    -fx-text-color: #fff;
+    -fx-background-color: linear-gradient(to bottom, #4a90e2, #357abd);
+    -fx-background-radius: 20;
+    -fx-border-color: #5ba0f2;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 0, 5);
+    -fx-cursor: hand;
+    -fx-padding: 15 25 15 25;
+    -fx-min-width: 180;
+    -fx-pref-width: 200;
+    -fx-max-width: 250;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5ba0f2, #4a90e2);
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.6), 20, 0, 0, 8);
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #357abd, #2a5f8f);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
 }
 
 .title{
-    -fx-font-size: 56;
-    -fx-fill: #fff;
+    -fx-font-size: 48;
+    -fx-fill: linear-gradient(to right, #f2c301, #ffed4e);
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 0, 2);
 }
 
 .background{
-    -fx-background-color: #191a1b;
+    -fx-background-color: linear-gradient(to bottom, #1e1e2e, #2d2d42);
+}
+
+.background-card{
+    -fx-background-color: linear-gradient(to bottom, #2a2a3e, #363652);
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 0, 5);
 }
 
 .text{
-    -fx-fill: #fff;
-    -fx-font-size: 21;
+    -fx-fill: #e1e1e6;
+    -fx-font-size: 18;
+    -fx-font-weight: normal;
+}
+
+.text-large{
+    -fx-fill: #ffffff;
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
 }
 
 .textField{
-    -fx-text-fill: #fff;
-    -fx-background-color: #060446;
-    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to bottom, #3e3e52, #4a4a5e);
+    -fx-background-radius: 12;
+    -fx-border-color: #5ba0f2;
+    -fx-border-radius: 12;
+    -fx-border-width: 2;
+    -fx-font-size: 16;
+    -fx-padding: 12;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 0);
+}
+
+.textField:focused {
     -fx-border-color: #f2c301;
-    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.5), 8, 0, 0, 0);
 }
 
 .enlace{
-    -fx-fill: #0790cb;
-    -fx-font-size: 21;
+    -fx-fill: #5ba0f2;
+    -fx-font-size: 16;
+    -fx-cursor: hand;
+}
+
+.enlace:hover {
+    -fx-fill: #f2c301;
+}
+
+/* === ESTILOS PARA COMBATE POKÉMON === */
+.button-fire {
+    -fx-background-color: linear-gradient(to bottom, #ff6b47, #e55a3a);
+    -fx-background-radius: 25;
+    -fx-border-color: #ff8566;
+    -fx-border-radius: 25;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-effect: dropshadow(gaussian, rgba(255,107,71,0.6), 18, 0, 0, 6);
+    -fx-cursor: hand;
+    -fx-padding: 20 30 20 30;
+    -fx-min-width: 180;
+    -fx-pref-width: 200;
+    -fx-max-width: 220;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.button-fire:hover {
+    -fx-background-color: linear-gradient(to bottom, #ff8566, #ff6b47);
+    -fx-scale-x: 1.12;
+    -fx-scale-y: 1.12;
+    -fx-effect: dropshadow(gaussian, rgba(255,107,71,0.8), 25, 0, 0, 10);
+}
+
+.button-water {
+    -fx-background-color: linear-gradient(to bottom, #4da6ff, #3d8bdb);
+    -fx-background-radius: 25;
+    -fx-border-color: #66b3ff;
+    -fx-border-radius: 25;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-effect: dropshadow(gaussian, rgba(77,166,255,0.6), 18, 0, 0, 6);
+    -fx-cursor: hand;
+    -fx-padding: 20 30 20 30;
+    -fx-min-width: 180;
+    -fx-pref-width: 200;
+    -fx-max-width: 220;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.button-water:hover {
+    -fx-background-color: linear-gradient(to bottom, #66b3ff, #4da6ff);
+    -fx-scale-x: 1.12;
+    -fx-scale-y: 1.12;
+    -fx-effect: dropshadow(gaussian, rgba(77,166,255,0.8), 25, 0, 0, 10);
+}
+
+.button-grass {
+    -fx-background-color: linear-gradient(to bottom, #52c752, #42a142);
+    -fx-background-radius: 25;
+    -fx-border-color: #6bd46b;
+    -fx-border-radius: 25;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-effect: dropshadow(gaussian, rgba(82,199,82,0.6), 18, 0, 0, 6);
+    -fx-cursor: hand;
+    -fx-padding: 20 30 20 30;
+    -fx-min-width: 180;
+    -fx-pref-width: 200;
+    -fx-max-width: 220;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.button-grass:hover {
+    -fx-background-color: linear-gradient(to bottom, #6bd46b, #52c752);
+    -fx-scale-x: 1.12;
+    -fx-scale-y: 1.12;
+    -fx-effect: dropshadow(gaussian, rgba(82,199,82,0.8), 25, 0, 0, 10);
+}
+
+/* === ETIQUETAS Y TEXTOS === */
+.pokemon-label {
+    -fx-text-fill: #f2c301;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.result-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+.details-label {
+    -fx-text-fill: #b8b8cc;
+    -fx-font-size: 16;
+}
+
+.player-label {
+    -fx-text-fill: #4da6ff;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.ai-label {
+    -fx-text-fill: #ff6b47;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.vs-label {
+    -fx-text-fill: #f2c301;
+    -fx-font-weight: bold;
+    -fx-font-size: 32;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 5, 0, 0, 2);
+}
+
+.subtitle {
+    -fx-text-fill: white;
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 2);
+}
+
+.vida-label {
+    -fx-text-fill: #52c752;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+/* === EFECTOS ADICIONALES === */
+.card {
+    -fx-background-color: linear-gradient(to bottom, #3a3a4e, #2d2d42);
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
+    -fx-border-color: #5a5a6e;
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+}
+
+.error-text {
+    -fx-fill: #ff6b6b;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.success-text {
+    -fx-fill: #52c752;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.warning-text {
+    -fx-fill: #f2c301;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+/* === BOTONES ESPECIALES === */
+.button-primary {
+    -fx-background-color: linear-gradient(to bottom, #f2c301, #d4a001);
+    -fx-background-radius: 15;
+    -fx-border-color: #ffed4e;
+    -fx-border-radius: 15;
+    -fx-border-width: 2;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.4), 10, 0, 0, 3);
+    -fx-cursor: hand;
+}
+
+.button-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffed4e, #f2c301);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* === COMBO BOX PEQUEÑO === */
+.combo-small {
+    -fx-background-color: linear-gradient(to bottom, #3e3e52, #2a2a3e);
+    -fx-background-radius: 8;
+    -fx-border-color: #5ba0f2;
+    -fx-border-radius: 8;
+    -fx-border-width: 2;
+    -fx-text-fill: white;
+    -fx-font-size: 12;
+    -fx-font-weight: normal;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+    -fx-cursor: hand;
+}
+
+.combo-small:hover {
+    -fx-background-color: linear-gradient(to bottom, #4a4a5e, #3e3e52);
+    -fx-border-color: #f2c301;
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.4), 10, 0, 0, 3);
+}
+
+/* === NUEVOS ESTILOS PARA MENÚ MEJORADO === */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #2a2a3e, #1e1e2e);
+    -fx-background-radius: 20;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0, 5, 5);
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-border-color: #3e3e52;
+    -fx-border-radius: 15;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 3);
+}
+
+.sidebar-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #4a4a5e, #3e3e52);
+    -fx-border-color: #5ba0f2;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.sidebar-button-active {
+    -fx-background-color: linear-gradient(to bottom, #5ba0f2, #4a90e2);
+    -fx-background-radius: 15;
+    -fx-border-color: #f2c301;
+    -fx-border-radius: 15;
+    -fx-border-width: 3;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.6), 12, 0, 0, 5);
+}
+
+.sidebar-label {
+    -fx-text-fill: #b8b8cc;
+    -fx-font-size: 12;
+    -fx-font-weight: normal;
+}
+
+.sidebar-label-active {
+    -fx-text-fill: #f2c301;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.game-mode-card {
+    -fx-background-color: linear-gradient(to bottom, #3a3a4e, #2d2d42);
+    -fx-background-radius: 25;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 0, 8);
+    -fx-border-color: #5a5a6e;
+    -fx-border-radius: 25;
+    -fx-border-width: 2;
+}
+
+.game-mode-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.4), 20, 0, 0, 10);
+    -fx-border-color: #5ba0f2;
+}
+
+.button-primary-large {
+    -fx-background-color: linear-gradient(to bottom, #f2c301, #d4a001);
+    -fx-background-radius: 30;
+    -fx-border-color: #ffed4e;
+    -fx-border-radius: 30;
+    -fx-border-width: 4;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.6), 20, 0, 0, 8);
+    -fx-cursor: hand;
+}
+
+.button-primary-large:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffed4e, #f2c301);
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.8), 25, 0, 0, 12);
+}
+
+.button-secondary-large {
+    -fx-background-color: linear-gradient(to bottom, #5ba0f2, #4a90e2);
+    -fx-background-radius: 30;
+    -fx-border-color: #66b3ff;
+    -fx-border-radius: 30;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.6), 20, 0, 0, 8);
+    -fx-cursor: hand;
+}
+
+.button-secondary-large:hover {
+    -fx-background-color: linear-gradient(to bottom, #66b3ff, #5ba0f2);
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.8), 25, 0, 0, 12);
+}
+
+.button-gold-large {
+    -fx-background-color: linear-gradient(to bottom, #ffaa00, #cc8800);
+    -fx-background-radius: 30;
+    -fx-border-color: #ffcc33;
+    -fx-border-radius: 30;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(255,170,0,0.6), 20, 0, 0, 8);
+    -fx-cursor: hand;
+}
+
+.button-gold-large:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffcc33, #ffaa00);
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+    -fx-effect: dropshadow(gaussian, rgba(255,170,0,0.8), 25, 0, 0, 12);
+}
+
+.game-mode-title {
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.game-mode-description {
+    -fx-text-fill: #b8b8cc;
+    -fx-font-size: 14;
+    -fx-text-alignment: center;
+}
+
+.subtitle-small {
+    -fx-text-fill: #e1e1e6;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.stat-card {
+    -fx-background-color: linear-gradient(to bottom, #3a3a4e, #2d2d42);
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 3);
+    -fx-border-color: #5a5a6e;
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+    -fx-min-width: 120;
+}
+
+.stat-number {
+    -fx-text-fill: #f2c301;
+    -fx-font-size: 28;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.stat-label {
+    -fx-text-fill: #b8b8cc;
+    -fx-font-size: 14;
+    -fx-font-weight: normal;
+}
+
+/* === ESTILOS MEJORADOS PARA COMBATE === */
+.pokemon-selection-card {
+    -fx-background-color: linear-gradient(to bottom, #3a3a4e, #2d2d42);
+    -fx-background-radius: 25;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 0, 8);
+    -fx-border-color: #5a5a6e;
+    -fx-border-radius: 25;
+    -fx-border-width: 2;
+    -fx-min-width: 250;
+}
+
+.pokemon-selection-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.4), 20, 0, 0, 10);
+    -fx-border-color: #5ba0f2;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.button-fire-enhanced {
+    -fx-background-color: linear-gradient(to bottom, #ff6b47, #e55a3a);
+    -fx-background-radius: 35;
+    -fx-border-color: #ff8566;
+    -fx-border-radius: 35;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(255,107,71,0.6), 20, 0, 0, 8);
+    -fx-cursor: hand;
+}
+
+.button-fire-enhanced:hover {
+    -fx-background-color: linear-gradient(to bottom, #ff8566, #ff6b47);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(255,107,71,0.8), 25, 0, 0, 12);
+}
+
+.button-water-enhanced {
+    -fx-background-color: linear-gradient(to bottom, #4da6ff, #3d8bdb);
+    -fx-background-radius: 35;
+    -fx-border-color: #66b3ff;
+    -fx-border-radius: 35;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(77,166,255,0.6), 20, 0, 0, 8);
+    -fx-cursor: hand;
+}
+
+.button-water-enhanced:hover {
+    -fx-background-color: linear-gradient(to bottom, #66b3ff, #4da6ff);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(77,166,255,0.8), 25, 0, 0, 12);
+}
+
+.button-grass-enhanced {
+    -fx-background-color: linear-gradient(to bottom, #52c752, #42a142);
+    -fx-background-radius: 35;
+    -fx-border-color: #6bd46b;
+    -fx-border-radius: 35;
+    -fx-border-width: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(82,199,82,0.6), 20, 0, 0, 8);
+    -fx-cursor: hand;
+}
+
+.button-grass-enhanced:hover {
+    -fx-background-color: linear-gradient(to bottom, #6bd46b, #52c752);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(82,199,82,0.8), 25, 0, 0, 12);
+}
+
+.pokemon-name {
+    -fx-text-fill: #f2c301;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0, 0, 1);
+}
+
+.pokemon-type {
+    -fx-text-fill: #b8b8cc;
+    -fx-font-size: 14;
+    -fx-font-weight: normal;
+}
+
+.pokemon-stats {
+    -fx-text-fill: #e1e1e6;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 2, 0, 0, 1);
+}
+
+/* === ESTILOS PARA VERSIÓN GRANDE === */
+.title-large {
+    -fx-text-fill: linear-gradient(to right, #f2c301, #ffed4e);
+    -fx-font-size: 64;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 12, 0, 0, 4);
+}
+
+.subtitle-main {
+    -fx-text-fill: #e1e1e6;
+    -fx-font-size: 24;
+    -fx-font-weight: normal;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 2);
+}
+
+.sidebar-large {
+    -fx-background-color: linear-gradient(to bottom, #2a2a3e, #1e1e2e);
+    -fx-background-radius: 25;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 20, 0, 8, 8);
+    -fx-border-color: #3e3e52;
+    -fx-border-radius: 25;
+    -fx-border-width: 2;
+}
+
+.sidebar-button-large {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20;
+    -fx-border-color: #3e3e52;
+    -fx-border-radius: 20;
+    -fx-border-width: 3;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0, 0, 4);
+}
+
+.sidebar-button-large:hover {
+    -fx-background-color: linear-gradient(to bottom, #4a4a5e, #3e3e52);
+    -fx-border-color: #5ba0f2;
+    -fx-scale-x: 1.08;
+    -fx-scale-y: 1.08;
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.6), 15, 0, 0, 6);
+}
+
+.sidebar-button-active-large {
+    -fx-background-color: linear-gradient(to bottom, #5ba0f2, #4a90e2);
+    -fx-background-radius: 20;
+    -fx-border-color: #f2c301;
+    -fx-border-radius: 20;
+    -fx-border-width: 4;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.8), 18, 0, 0, 8);
+}
+
+.sidebar-label-large {
+    -fx-text-fill: #b8b8cc;
+    -fx-font-size: 14;
+    -fx-font-weight: normal;
+}
+
+.sidebar-label-active-large {
+    -fx-text-fill: #f2c301;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0, 0, 2);
+}
+
+/* === MEJORAS PARA FONDO === */
+.background {
+    -fx-background-color: linear-gradient(to bottom right, #1a1a2e, #16213e, #0f3460);
+}
+
+/* === MEJORAS PARA GAME MODE CARDS === */
+.game-mode-card {
+    -fx-background-color: linear-gradient(to bottom, #3a3a4e, #2d2d42);
+    -fx-background-radius: 30;
+    -fx-padding: 35;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 10);
+    -fx-border-color: #5a5a6e;
+    -fx-border-radius: 30;
+    -fx-border-width: 2;
+    -fx-min-width: 280;
+    -fx-min-height: 300;
+}
+
+.game-mode-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(91,160,242,0.5), 25, 0, 0, 12);
+    -fx-border-color: #5ba0f2;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* === MEJORAS PARA STAT CARDS === */
+.stat-card {
+    -fx-background-color: linear-gradient(to bottom, #3a3a4e, #2d2d42);
+    -fx-background-radius: 20;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 0, 6);
+    -fx-border-color: #5a5a6e;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+    -fx-min-width: 150;
+    -fx-min-height: 120;
+}
+
+.stat-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.4), 18, 0, 0, 8);
+    -fx-border-color: #f2c301;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.button-danger {
+    -fx-background-color: linear-gradient(to bottom, #ff6b6b, #e55a5a);
+    -fx-background-radius: 15;
+    -fx-border-color: #ff8585;
+    -fx-border-radius: 15;
+    -fx-border-width: 2;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-effect: dropshadow(gaussian, rgba(255,107,107,0.4), 10, 0, 0, 3);
+    -fx-cursor: hand;
+}
+
+.button-danger:hover {
+    -fx-background-color: linear-gradient(to bottom, #ff8585, #ff6b6b);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1600.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diegofeblesseoane.pkgame.backend.controller.ResultadosController">
+   <children>
+      <!-- Título -->
+      <Label fx:id="labelTitulo" layoutX="550.0" layoutY="50.0" styleClass="title" text="🏆 RESULTADOS DEL COMBATE" textAlignment="CENTER">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      
+      <!-- Resultado principal -->
+      <VBox alignment="CENTER" layoutX="650.0" layoutY="150.0" spacing="20.0">
+         <children>
+            <Label fx:id="labelResultadoPrincipal" styleClass="subtitle" text="¡RESULTADO!" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            
+            <Label fx:id="labelMarcador" styleClass="text" text="Marcador: 0 - 0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      
+      <!-- Evolución final de los Pokémon -->
+      <HBox alignment="CENTER" layoutX="200.0" layoutY="280.0" spacing="200.0">
+         <children>
+            <!-- Pokémon del jugador -->
+            <VBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Label styleClass="subtitle" text="TU POKÉMON FINAL">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <ImageView fx:id="imagenPokemonJugador" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pokemon/charmander.png" />
+                     </image>
+                  </ImageView>
+                  
+                  <Label fx:id="labelNombrePokemonJugador" styleClass="text" text="Charmander">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label fx:id="labelNivelPokemonJugador" styleClass="text" text="🥚 Nivel 1 - Básico">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label fx:id="labelEvolucionesPokemonJugador" styleClass="text" text="Evoluciones: 0" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <!-- VS -->
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label styleClass="vs-label" text="VS">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  
+                  <Separator prefWidth="100.0" />
+                  
+                  <Label styleClass="text" text="BATALLA FINAL">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            
+            <!-- Pokémon de la IA -->
+            <VBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <Label styleClass="subtitle" text="POKÉMON IA FINAL">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <ImageView fx:id="imagenPokemonIA" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pokemon/squirtle.png" />
+                     </image>
+                  </ImageView>
+                  
+                  <Label fx:id="labelNombrePokemonIA" styleClass="text" text="Squirtle">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label fx:id="labelNivelPokemonIA" styleClass="text" text="🥚 Nivel 1 - Básico">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label fx:id="labelEvolucionesPokemonIA" styleClass="text" text="Evoluciones: 0" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      
+      <!-- Resumen de rondas -->
+      <VBox alignment="CENTER" layoutX="500.0" layoutY="600.0" spacing="15.0">
+         <children>
+            <Label styleClass="subtitle" text="📊 RESUMEN DE RONDAS">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            
+            <HBox alignment="CENTER" spacing="50.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label styleClass="text" text="RONDA 1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelRonda1" styleClass="text" text="❓ Sin jugar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label styleClass="text" text="RONDA 2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelRonda2" styleClass="text" text="❓ Sin jugar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  
+                  <VBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <Label styleClass="text" text="RONDA 3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelRonda3" styleClass="text" text="❓ Sin jugar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      
+      <!-- Estadísticas del usuario -->
+      <VBox alignment="CENTER" layoutX="500.0" layoutY="750.0" spacing="10.0">
+         <children>
+            <Label fx:id="labelEstadisticasUsuario" styleClass="text" text="Estadísticas actualizadas" textAlignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      
+      <!-- Botones -->
+      <HBox alignment="CENTER" layoutX="550.0" layoutY="850.0" spacing="50.0">
+         <children>
+            <Button fx:id="buttonNuevoCombate" onAction="#onNuevoCombateClick" prefHeight="60.0" prefWidth="200.0" styleClass="button" text="🎮 NUEVO COMBATE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            
+            <Button fx:id="buttonVerEstadisticas" onAction="#onVerEstadisticasClick" prefHeight="60.0" prefWidth="200.0" styleClass="button" text="📊 ESTADÍSTICAS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            
+            <Button fx:id="buttonVolverMenu" onAction="#onVolverMenuClick" prefHeight="60.0" prefWidth="200.0" styleClass="button" text="🏠 MENÚ PRINCIPAL">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
+

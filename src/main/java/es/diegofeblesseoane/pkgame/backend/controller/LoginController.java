@@ -28,8 +28,8 @@ public class LoginController {
         try {
             Stage stage = (Stage) buttonIniciarSesion.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("inicioSesion.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
-            stage.setTitle("RPS Pokemon - Inicio Sesion");
+            Scene scene = new Scene(fxmlLoader.load(), 2100, 1200);
+            stage.setTitle("PK-GAME - Inicio Sesion");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
@@ -42,8 +42,8 @@ public class LoginController {
         try {
             Stage stage = (Stage) buttonIniciarSinRegistro.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("menu.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
-            stage.setTitle("RPS Pokemon - Inicio Sesion");
+            Scene scene = new Scene(fxmlLoader.load(), 2100, 1200);
+            stage.setTitle("PK-GAME - Menu Principal");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

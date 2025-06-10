@@ -32,6 +32,11 @@
             <artifactId>javafx-fxml</artifactId>
             <version>17.0.2</version> <!-- Usa la versión de JavaFX adecuada -->
         </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.42.0.0</version> <!-- o una versión reciente -->
+        </dependency>
     </dependencies>
 
     <build>

@@ -5,18 +5,19 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class PrincipalApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Font.loadFont(PrincipalApplication.class.getResourceAsStream("/fonts/marvel.ttf"), 10);
-
         FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
-        stage.setTitle("RPS Pokemon");
-        stage.setResizable(false);
+        Scene scene = new Scene(fxmlLoader.load(), 2100, 1200);
+        stage.setTitle("PK-GAME");
+        stage.setResizable(true);  // Permitir redimensionar para mejor experiencia
+        stage.setMinWidth(1920);   // Tamaño mínimo
+        stage.setMinHeight(1080);
+        stage.setMaxWidth(2560);   // Tamaño máximo
+        stage.setMaxHeight(1440);
         stage.setScene(scene);
         stage.show();
     }

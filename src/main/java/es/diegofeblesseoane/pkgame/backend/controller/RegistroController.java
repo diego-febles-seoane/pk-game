@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class RegistroController extends AbstractController{
+public class RegistroController extends AbstractController {
     @FXML
     public TextField textFieldNombreUsuario;
 
@@ -36,62 +36,107 @@ public class RegistroController extends AbstractController{
 
     @FXML
     public Text textMensaje;
-    
+
     private UsuarioServiceModel usuarioServiceModel;
-    
-    /**
-     * Devuelve el modelo de usuario.
-     * @return El modelo de usuario.
-     */
+
+    public RegistroController() {
+        this.usuarioServiceModel = new UsuarioServiceModel();
+    }
+
+    public RegistroController(UsuarioServiceModel usuarioServiceModel) {
+        this.usuarioServiceModel = usuarioServiceModel;
+    }
+
     public UsuarioServiceModel getUsuarioServiceModel() {
         return this.usuarioServiceModel;
     }
 
-    /**
-     * * Metodo que se ejecuta al hacer click en el boton de registrar
-     * * Registra un nuevo usuario en la base de datos
-     * @throws SQLException Excepcion de SQL
-     */
-
     @FXML
-    public void onRegistroCompletadoClick() throws SQLException{
-        if (passwordFieldContrasenia == null || passwordFieldContrasenia.getText().isEmpty()
-                || passwordFieldContrasenia1 == null || passwordFieldContrasenia1.getText().isEmpty()) {
-            textMensaje.setText("¡El password no puede ser nulo o vacio!");
-            return;
-        }
+    public void onRegistroCompletadoClick() {
+        try {
+            // Limpiar mensaje anterior
+            textMensaje.setText("");
+            
+            // Obtener y limpiar los valores de los campos
+            String email = textFieldNombreUsuario2 != null ? textFieldNombreUsuario2.getText().trim() : "";
+            String nombreUsuario = textFieldNombreUsuario != null ? textFieldNombreUsuario.getText().trim() : "";
+            String contrasenia = passwordFieldContrasenia != null ? passwordFieldContrasenia.getText().trim() : "";
+            String contrasenia2 = passwordFieldContrasenia1 != null ? passwordFieldContrasenia1.getText().trim() : "";
+            
+            // Validaciones básicas
+            if (email.isEmpty()) {
+                textMensaje.setText("❌ El email no puede estar vacío");
+                return;
+            }
+            
+            if (nombreUsuario.isEmpty()) {
+                textMensaje.setText("❌ El nombre de usuario no puede estar vacío");
+                return;
+            }
+            
+            if (contrasenia.isEmpty() || contrasenia2.isEmpty()) {
+                textMensaje.setText("❌ Las contraseñas no pueden estar vacías");
+                return;
+            }
 
-        if (passwordFieldContrasenia.getText().equals(passwordFieldContrasenia1.getText())) {
-            textMensaje.setText("¡El password es correcto!");
-        }
+            // Validar que las contraseñas coincidan
+            if (!contrasenia.equals(contrasenia2)) {
+                textMensaje.setText("❌ Las contraseñas no coinciden");
+                return;
+            }
 
-        UsuarioEntity usuarioNuevo = new UsuarioEntity(textFieldNombreUsuario2.getText(), textFieldNombreUsuario.getText(),
-                passwordFieldContrasenia.getText());
+            // Crear un nuevo usuario
+            UsuarioEntity usuarioNuevo = new UsuarioEntity(email, nombreUsuario, contrasenia);
 
-        if (!getUsuarioServiceModel().agregarUsuario(usuarioNuevo)) {
-            textMensaje.setText("Usuario ya registrado o null");
-            return;
-        } else {
-            textMensaje.setText("Usuario Registrado Correctamente");
-            openVolverClick();
-            return;
+            // Validar datos con el servicio
+            String errorValidacion = getUsuarioServiceModel().validarUsuario(usuarioNuevo);
+            if (errorValidacion != null) {
+                textMensaje.setText("❌ " + errorValidacion);
+                return;
+            }
+
+            System.out.println("🔄 Intentando registrar usuario: " + usuarioNuevo.getEmail());
+
+            // Intentar agregar el usuario a la base de datos
+            if (getUsuarioServiceModel().agregarUsuario(usuarioNuevo)) {
+                textMensaje.setText("✅ ¡Usuario registrado correctamente! Redirigiendo...");
+                System.out.println("✅ Usuario registrado exitosamente: " + usuarioNuevo.getEmail());
+                
+                // Esperar un momento antes de redirigir para mostrar el mensaje
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(1500);
+                        javafx.application.Platform.runLater(this::openVolverClick);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+            } else {
+                textMensaje.setText("❌ Usuario ya registrado o error en el registro");
+            }
+            
+        } catch (SQLException e) {
+            textMensaje.setText("❌ Error de conexión. Inténtalo de nuevo.");
+            System.err.println("Error en onRegistroCompletadoClick: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            textMensaje.setText("❌ Error inesperado. Inténtalo de nuevo.");
+            System.err.println("Error inesperado: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    /**
-     * * Metodo que se ejecuta al hacer click en el boton de volver
-     * * Vuelve a la pantalla de inicio de sesion
-     */
     @FXML
     protected void openVolverClick() {
         try {
             Stage stage = (Stage) buttonRegistro.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(PrincipalApplication.class.getResource("inicioSesion.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1280, 800);
-            stage.setTitle("RPS Pokemon - Inicio Sesion");
+            Scene scene = new Scene(fxmlLoader.load(), 2100, 1200);
+            stage.setTitle("PK-GAME - Inicio Sesion");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
+            textMensaje.setText("Error al volver a la pantalla de inicio de sesión.");
             e.printStackTrace();
         }
     }
