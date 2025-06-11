@@ -1,9 +1,12 @@
-package es.diegofeblesseoane.pkgame;
-
-import es.diegofeblesseoane.pkgame.backend.model.*;
-import es.diegofeblesseoane.pkgame.backend.service.CombateService;
+package integration.demos;
 
 import java.sql.SQLException;
+
+import es.diegofeblesseoane.pkgame.backend.model.TipoPokemon;
+import es.diegofeblesseoane.pkgame.backend.model.UsuarioEntity;
+import es.diegofeblesseoane.pkgame.backend.model.UsuarioServiceModel;
+import es.diegofeblesseoane.pkgame.backend.model.UsuarioSesion;
+import es.diegofeblesseoane.pkgame.backend.service.CombateService;
 
 public class UsuariosCombateTest {
     

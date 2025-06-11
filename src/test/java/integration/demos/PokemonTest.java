@@ -1,8 +1,12 @@
-package es.diegofeblesseoane.pkgame;
+package integration.demos;
 
-import es.diegofeblesseoane.pkgame.backend.model.*;
 import java.sql.SQLException;
 import java.util.List;
+
+import es.diegofeblesseoane.pkgame.backend.model.EstadisticasEntity;
+import es.diegofeblesseoane.pkgame.backend.model.MovimientoEntity;
+import es.diegofeblesseoane.pkgame.backend.model.PokemonDAO;
+import es.diegofeblesseoane.pkgame.backend.model.PokemonEntity;
 
 public class PokemonTest {
     

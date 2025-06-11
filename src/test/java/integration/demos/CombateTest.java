@@ -1,10 +1,10 @@
-package es.diegofeblesseoane.pkgame;
-
-import es.diegofeblesseoane.pkgame.backend.model.TipoPokemon;
-import es.diegofeblesseoane.pkgame.backend.service.CombateService;
-import es.diegofeblesseoane.pkgame.backend.model.PokemonEntity;
+package integration.demos;
 
 import java.sql.SQLException;
+
+import es.diegofeblesseoane.pkgame.backend.model.PokemonEntity;
+import es.diegofeblesseoane.pkgame.backend.model.TipoPokemon;
+import es.diegofeblesseoane.pkgame.backend.service.CombateService;
 
 public class CombateTest {
     

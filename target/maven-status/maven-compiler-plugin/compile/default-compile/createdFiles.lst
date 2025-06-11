@@ -1,10 +1,8 @@
 es/diegofeblesseoane/pkgame/backend/model/PokemonEntity.class
-es/diegofeblesseoane/pkgame/PokemonTest.class
 es/diegofeblesseoane/pkgame/PrincipalApplication.class
 es/diegofeblesseoane/pkgame/backend/model/EstadisticasEntity.class
 es/diegofeblesseoane/pkgame/config/ConfigManager$ConfigProperties.class
 es/diegofeblesseoane/pkgame/backend/model/PokemonEvolucion$1.class
-es/diegofeblesseoane/pkgame/UsuariosCombateTest.class
 es/diegofeblesseoane/pkgame/backend/model/abtrastas/Conexion.class
 es/diegofeblesseoane/pkgame/backend/model/PokemonDAO.class
 es/diegofeblesseoane/pkgame/backend/model/PokemonEvolucion.class
@@ -12,6 +10,7 @@ es/diegofeblesseoane/pkgame/backend/controller/ResultadosController.class
 es/diegofeblesseoane/pkgame/backend/controller/abstracts/AbstractController.class
 es/diegofeblesseoane/pkgame/backend/controller/LoginController.class
 es/diegofeblesseoane/pkgame/backend/controller/CombateController.class
+es/diegofeblesseoane/pkgame/backend/model/TipoPokemon$1.class
 es/diegofeblesseoane/pkgame/backend/service/CombateService.class
 es/diegofeblesseoane/pkgame/backend/model/UsuarioServiceModel.class
 es/diegofeblesseoane/pkgame/backend/service/CombateService$TurnoResult.class
@@ -21,7 +20,6 @@ es/diegofeblesseoane/pkgame/config/ConfigManager.class
 es/diegofeblesseoane/pkgame/backend/controller/RegistroController.class
 es/diegofeblesseoane/pkgame/backend/service/CombateService$IniciarCombateResult.class
 es/diegofeblesseoane/pkgame/backend/model/MovimientoEntity.class
-es/diegofeblesseoane/pkgame/CombateTest.class
 es/diegofeblesseoane/pkgame/backend/model/UsuarioSesion.class
 es/diegofeblesseoane/pkgame/backend/controller/EstadisticasController.class
 es/diegofeblesseoane/pkgame/backend/service/CalculadoraDano.class
