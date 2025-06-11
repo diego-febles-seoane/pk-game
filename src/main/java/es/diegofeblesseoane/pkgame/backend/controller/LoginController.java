@@ -5,11 +5,13 @@ import java.util.List;
 
 import es.diegofeblesseoane.pkgame.PrincipalApplication;
 import es.diegofeblesseoane.pkgame.config.ConfigManager;
+import es.diegofeblesseoane.pkgame.config.GlobalLanguageManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -22,6 +24,9 @@ public class LoginController {
 
     @FXML
     private ComboBox<String> comboIdioma;
+    
+    @FXML
+    private Label labelIdioma;
 
     @FXML
     public void onIniciarSesionButton(){
@@ -53,62 +58,110 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        // Configurar idiomas en el ComboBox
+        configurarComboIdiomas();
+        inicializarIdiomaGlobal();
+    }
+    
+    /**
+     * Configura el ComboBox de idiomas
+     */
+    private void configurarComboIdiomas() {
+        // Configurar opciones de idioma
         List<String> idiomas = new ArrayList<>();
         idiomas.add("es");
         idiomas.add("en");
         idiomas.add("fr");
         comboIdioma.getItems().addAll(idiomas);
 
-        String idiomaActual = ConfigManager.ConfigProperties.getProperty("idiomaActual", "es");
+        // Establecer idioma por defecto
+        String idiomaActual = GlobalLanguageManager.getCurrentLanguage();
         comboIdioma.setValue(idiomaActual);
 
-        // Add listener for language changes
+        // Añadir listener para cambios de idioma
         comboIdioma.setOnAction(event -> cambiarIdioma());
-
-        // Initial language setup
-        cambiarIdioma();
+        
+        System.out.println("🎛️ ComboBox de idiomas configurado. Idioma actual: " + idiomaActual);
+    }
+    
+    /**
+     * Inicializa el sistema de idioma global y actualiza la interfaz
+     */
+    private void inicializarIdiomaGlobal() {
+        try {
+            // Inicializar el sistema de idioma global
+            String idiomaInicial = comboIdioma.getValue();
+            GlobalLanguageManager.setGlobalLanguage(idiomaInicial);
+            
+            // Actualizar interfaz con el idioma inicial
+            actualizarInterfazLogin();
+            
+            System.out.println("🚀 Sistema de idioma global inicializado con: " + idiomaInicial);
+            
+        } catch (Exception e) {
+            System.out.println("❌ Error inicializando idioma global: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     /**
-     * Cambia el idioma de la aplicación según el seleccionado en el ComboBox.
-     * Actualiza los textos de la interfaz al idioma seleccionado.
+     * Cambia el idioma de toda la aplicación según el seleccionado en el ComboBox.
+     * Este método establece el idioma globalmente para toda la aplicación.
      */
     @FXML
     protected void cambiarIdioma() {
         try {
+            if (comboIdioma.getValue() == null) {
+                return;
+            }
+            
             String idiomaSeleccionado = comboIdioma.getValue().toString();
-            System.out.println("Changing language to: " + idiomaSeleccionado);
+            System.out.println("🌍 Cambiando idioma global a: " + idiomaSeleccionado);
             
-            String path = "/es/diegofeblesseoane/pkgame/idioma-" + idiomaSeleccionado + ".properties";
-            System.out.println("Loading properties file: " + path);
+            // Establecer idioma globalmente - esto afectará a toda la aplicación
+            GlobalLanguageManager.setGlobalLanguage(idiomaSeleccionado);
             
-            ConfigManager.ConfigProperties.setPath(path);
-            ConfigManager.ConfigProperties.setProperty("idiomaActual", idiomaSeleccionado);
+            // Actualizar la interfaz actual
+            actualizarInterfazLogin();
             
-            // Get properties with debugging
+            System.out.println("✅ Idioma global actualizado exitosamente");
+            
+        } catch (Exception e) {
+            System.out.println("❌ ERROR al cambiar idioma: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Actualiza los textos de la interfaz de login según el idioma actual
+     */
+    private void actualizarInterfazLogin() {
+        try {
+            // Obtener textos traducidos
             String buttonLoginText = ConfigManager.ConfigProperties.getProperty("buttonIniciarSesion");
             String buttonPlayText = ConfigManager.ConfigProperties.getProperty("buttonIniciarSinRegistro");
+            String labelIdiomaText = ConfigManager.ConfigProperties.getProperty("label.language");
             
-            System.out.println("Retrieved properties:");
+            System.out.println("📝 Actualizando textos de login:");
             System.out.println("  buttonIniciarSesion = " + buttonLoginText);
             System.out.println("  buttonIniciarSinRegistro = " + buttonPlayText);
+            System.out.println("  labelIdioma = " + labelIdiomaText);
             
-            // Set button text with null checks
-            if (buttonLoginText != null) {
+            // Actualizar textos de botones con verificación
+            if (buttonLoginText != null && buttonIniciarSesion != null) {
                 buttonIniciarSesion.setText(buttonLoginText);
-            } else {
-                System.out.println("WARNING: buttonIniciarSesion property is null");
             }
             
-            if (buttonPlayText != null) {
+            if (buttonPlayText != null && buttonIniciarSinRegistro != null) {
                 buttonIniciarSinRegistro.setText(buttonPlayText);
-            } else {
-                System.out.println("WARNING: buttonIniciarSinRegistro property is null");
             }
+            
+            // Actualizar label de idioma
+            if (labelIdiomaText != null && labelIdioma != null) {
+                labelIdioma.setText(labelIdiomaText);
+            }
+            
         } catch (Exception e) {
-            System.out.println("ERROR in cambiarIdioma(): " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("❌ Error actualizando interfaz de login: " + e.getMessage());
         }
     }
 }

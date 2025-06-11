@@ -11,14 +11,14 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="2100.0" styleClass="background" stylesheets="@CSS/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diegofeblesseoane.pkgame.backend.controller.CombateController">
    <children>
       <!-- Botón de volver en esquina superior izquierda (no interfiere) -->
-      <Button fx:id="buttonVolverMenu" onAction="#onVolverMenuClick" layoutX="30.0" layoutY="30.0" prefHeight="50.0" prefWidth="180.0" styleClass="button-danger" text="← VOLVER">
+      <Button fx:id="buttonVolverMenu" layoutX="30.0" layoutY="30.0" onAction="#onVolverMenuClick" prefHeight="50.0" prefWidth="180.0" styleClass="button-danger" text="← VOLVER">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
       
       <!-- Título simplificado centrado -->
-      <VBox alignment="CENTER" layoutX="750.0" layoutY="60.0" spacing="15.0">
+      <VBox alignment="CENTER" layoutX="894.0" layoutY="52.0" spacing="15.0">
          <children>
             <Label styleClass="title" text="COMBATE POKÉMON" textAlignment="CENTER">
                <font>
@@ -30,47 +30,83 @@
       </VBox>
       
       <!-- Área de selección de Pokémon expandida -->
-      <VBox alignment="CENTER" layoutX="300.0" layoutY="200.0" prefWidth="1500.0" spacing="50.0">
+      <VBox alignment="CENTER" layoutX="300.0" layoutY="160.0" prefWidth="1500.0" spacing="40.0">
          <children>
             <HBox alignment="CENTER" spacing="120.0">
                <children>
                   <!-- Rediseño de Pokémon Fuego expandido -->
-                  <VBox alignment="CENTER" spacing="20.0" styleClass="pokemon-selection-card">
+                  <VBox alignment="CENTER" spacing="15.0" styleClass="pokemon-selection-card">
                      <children>
-                        <Button fx:id="buttonFuego" onAction="#onFuegoClick" prefHeight="180.0" prefWidth="220.0" styleClass="button-fire-enhanced" text="🔥">
+                        <Button fx:id="buttonFuego" onAction="#onFuegoClick" prefHeight="160.0" prefWidth="200.0" styleClass="button-fire-enhanced" text="🔥">
                            <font>
-                              <Font size="68.0" />
+                              <Font size="60.0" />
                            </font>
                         </Button>
-                        <Label styleClass="pokemon-name" text="CHARMANDER" />
-                        <Label styleClass="pokemon-type" text="Tipo: Fuego" />
-                        <Label styleClass="pokemon-stats" text="❤️ HP: 39 • ⚔️ ATK: 52" />
+                        <Label styleClass="pokemon-name" text="CHARMANDER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="pokemon-type" text="Tipo: Fuego">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="pokemon-stats" text="❤️ HP: 39 • ⚔️ ATK: 52">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                   <!-- Rediseño de Pokémon Agua expandido -->
-                  <VBox alignment="CENTER" spacing="20.0" styleClass="pokemon-selection-card">
+                  <VBox alignment="CENTER" spacing="15.0" styleClass="pokemon-selection-card">
                      <children>
-                        <Button fx:id="buttonAgua" onAction="#onAguaClick" prefHeight="180.0" prefWidth="220.0" styleClass="button-water-enhanced" text="💧">
+                        <Button fx:id="buttonAgua" onAction="#onAguaClick" prefHeight="160.0" prefWidth="200.0" styleClass="button-water-enhanced" text="💧">
                            <font>
-                              <Font size="68.0" />
+                              <Font size="60.0" />
                            </font>
                         </Button>
-                        <Label styleClass="pokemon-name" text="SQUIRTLE" />
-                        <Label styleClass="pokemon-type" text="Tipo: Agua" />
-                        <Label styleClass="pokemon-stats" text="❤️ HP: 44 • ⚔️ ATK: 48" />
+                        <Label styleClass="pokemon-name" text="SQUIRTLE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="pokemon-type" text="Tipo: Agua">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="pokemon-stats" text="❤️ HP: 44 • ⚔️ ATK: 48">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                   <!-- Rediseño de Pokémon Planta expandido -->
-                  <VBox alignment="CENTER" spacing="20.0" styleClass="pokemon-selection-card">
+                  <VBox alignment="CENTER" spacing="15.0" styleClass="pokemon-selection-card">
                      <children>
-                        <Button fx:id="buttonPlanta" onAction="#onPlantaClick" prefHeight="180.0" prefWidth="220.0" styleClass="button-grass-enhanced" text="🌿">
+                        <Button fx:id="buttonPlanta" onAction="#onPlantaClick" prefHeight="160.0" prefWidth="200.0" styleClass="button-grass-enhanced" text="🌿">
                            <font>
-                              <Font size="68.0" />
+                              <Font size="60.0" />
                            </font>
                         </Button>
-                        <Label styleClass="pokemon-name" text="BULBASAUR" />
-                        <Label styleClass="pokemon-type" text="Tipo: Planta" />
-                        <Label styleClass="pokemon-stats" text="❤️ HP: 45 • ⚔️ ATK: 49" />
+                        <Label styleClass="pokemon-name" text="BULBASAUR">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="pokemon-type" text="Tipo: Planta">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="pokemon-stats" text="❤️ HP: 45 • ⚔️ ATK: 49">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                </children>
@@ -79,7 +115,7 @@
       </VBox>
       
       <!-- Botones de ataques (ocultos inicialmente) -->
-      <HBox alignment="CENTER" layoutX="200.0" layoutY="320.0" spacing="20.0">
+      <HBox alignment="CENTER" layoutX="200.0" layoutY="450.0" spacing="20.0">
          <children>
             <VBox spacing="10.0">
                <children>
@@ -113,7 +149,7 @@
       </HBox>
       
       <!-- Área de resultado -->
-      <VBox alignment="CENTER" layoutX="240.0" layoutY="450.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="722.0" layoutY="666.0" spacing="20.0">
          <children>
             <!-- Resultado principal -->
             <Label fx:id="labelResultado" styleClass="result-label" text="¡Elige tu Pokémon para el combate!" textAlignment="CENTER" wrapText="true">
@@ -122,28 +158,56 @@
                </font>
             </Label>
             
-            <!-- Área de batalla visual -->
-            <HBox alignment="CENTER" spacing="100.0">
+                  <!-- Área de batalla visual mejorada -->
+            <HBox alignment="CENTER" spacing="150.0">
                <children>
-                  <VBox alignment="CENTER" spacing="10.0">
+                  <!-- Pokémon del Jugador -->
+                  <VBox alignment="CENTER" spacing="15.0" styleClass="combat-info-card">
                      <children>
-                        <Label fx:id="labelJugador" styleClass="player-label" text="Tu Pokémon:" visible="false" />
-                        <Label fx:id="labelVidaJugador" styleClass="vida-label" text="Vida: 0/0" visible="false" />
-                        <ImageView fx:id="imagenJugador" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                        <Label fx:id="labelJugador" styleClass="player-label" text="Tu Pokémon:" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="imagenJugador" fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                        <Label fx:id="labelVidaJugador" styleClass="vida-label" text="Vida: 0/0" visible="false">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                   
-                  <Label styleClass="vs-label" text="VS" visible="true">
-                     <font>
-                        <Font size="48.0" />
-                     </font>
-                  </Label>
-                  
+                        <!-- Separador VS -->
                   <VBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <Label fx:id="labelIA" styleClass="ai-label" text="Pokémon IA:" visible="false" />
-                        <Label fx:id="labelVidaIA" styleClass="vida-label" text="Vida: 0/0" visible="false" />
-                        <ImageView fx:id="imagenIA" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                        <Label styleClass="vs-label" text="VS" visible="true">
+                           <font>
+                              <Font size="52.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="subtitle-small" text="BATALLA" visible="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  
+                        <!-- Pokémon de la IA -->
+                  <VBox alignment="CENTER" spacing="15.0" styleClass="combat-info-card">
+                     <children>
+                        <Label fx:id="labelIA" styleClass="ai-label" text="Pokémon IA:" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="imagenIA" fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+                        <Label fx:id="labelVidaIA" styleClass="vida-label" text="Vida: 0/0" visible="false">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                   </VBox>
                </children>
@@ -159,7 +223,7 @@
       </VBox>
       
       <!-- Botones de control centrados -->
-      <HBox alignment="CENTER" layoutX="850.0" layoutY="1000.0" spacing="50.0">
+      <HBox alignment="CENTER" layoutX="850.0" layoutY="1100.0" spacing="50.0">
          <children>
             <Button fx:id="buttonNuevoCombate" onAction="#onNuevoCombateClick" prefHeight="60.0" prefWidth="220.0" styleClass="button-primary-large" text="NUEVO COMBATE" visible="false">
                <font>
@@ -170,4 +234,3 @@
       </HBox>
    </children>
 </AnchorPane>
-

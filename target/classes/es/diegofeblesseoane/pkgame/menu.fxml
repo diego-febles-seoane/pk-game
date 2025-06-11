@@ -21,13 +21,6 @@
       
       <!-- Overlay semi-transparente para mejor legibilidad -->
       <AnchorPane prefHeight="1200.0" prefWidth="2100.0" styleClass="background-overlay" />
-      <!-- Selector de idioma en la esquina superior derecha -->
-      <VBox alignment="TOP_RIGHT" layoutX="1800.0" layoutY="30.0" spacing="5.0">
-         <children>
-            <Label fx:id="labelLanguage" styleClass="language-label" text="Idioma:" textFill="white" />
-            <ComboBox fx:id="comboIdioma" prefWidth="120.0" styleClass="language-combo" />
-         </children>
-      </VBox>
       
       <!-- Título principal centrado -->
       <VBox alignment="CENTER" layoutX="750.0" layoutY="50.0" spacing="20.0">

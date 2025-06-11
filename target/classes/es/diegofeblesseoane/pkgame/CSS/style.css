@@ -678,3 +678,83 @@
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
 }
+
+/* === ESTILOS PARA SELECTOR DE IDIOMA === */
+.language-label {
+    -fx-text-fill: #f2c301;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0, 0, 2);
+}
+
+.language-combo {
+    -fx-background-color: linear-gradient(to bottom, #3a3a4e, #2d2d42);
+    -fx-background-radius: 12;
+    -fx-border-color: #5ba0f2;
+    -fx-border-radius: 12;
+    -fx-border-width: 3;
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 4);
+    -fx-cursor: hand;
+    -fx-padding: 8;
+}
+
+.language-combo:hover {
+    -fx-background-color: linear-gradient(to bottom, #4a4a5e, #3a3a4e);
+    -fx-border-color: #f2c301;
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.6), 12, 0, 0, 5);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.language-combo:focused {
+    -fx-border-color: #f2c301;
+    -fx-effect: dropshadow(gaussian, rgba(242,195,1,0.8), 15, 0, 0, 6);
+}
+
+.language-combo .list-cell {
+    -fx-background-color: #3a3a4e;
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-padding: 8;
+}
+
+.language-combo .list-cell:filled:hover {
+    -fx-background-color: #5ba0f2;
+    -fx-text-fill: white;
+}
+
+.language-combo .list-cell:filled:selected {
+    -fx-background-color: #f2c301;
+    -fx-text-fill: #1e1e2e;
+}
+
+/* === DROPDOWN POPUP STYLES === */
+.language-combo .list-view {
+    -fx-background-color: #2d2d42;
+    -fx-border-color: #5ba0f2;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0, 0, 6);
+}
+
+.language-combo .list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-padding: 10;
+}
+
+.language-combo .list-view .list-cell:hover {
+    -fx-background-color: #5ba0f2;
+    -fx-text-fill: white;
+}
+
+.language-combo .list-view .list-cell:selected {
+    -fx-background-color: #f2c301;
+    -fx-text-fill: #1e1e2e;
+    -fx-font-weight: bold;
+}

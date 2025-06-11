@@ -26,3 +26,4 @@ es/diegofeblesseoane/pkgame/backend/service/CalculadoraDano.class
 es/diegofeblesseoane/pkgame/backend/controller/MenuController.class
 es/diegofeblesseoane/pkgame/backend/model/TipoPokemon.class
 es/diegofeblesseoane/pkgame/backend/controller/InicioSesionController.class
+es/diegofeblesseoane/pkgame/config/GlobalLanguageManager.class
